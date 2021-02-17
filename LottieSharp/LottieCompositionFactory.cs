@@ -299,7 +299,7 @@ namespace LottieSharp
         {
             if (_taskCache.ContainsKey(cacheKey))
             {
-                return _taskCache[cacheKey].Result;
+                return await _taskCache[cacheKey];
             }
 
             var task = Task.Run(callable, cancellationToken);
@@ -315,7 +315,7 @@ namespace LottieSharp
                 _taskCache.Remove(cacheKey);
             }
 
-            return task.Result;
+            return await task;
         }
     }
 }

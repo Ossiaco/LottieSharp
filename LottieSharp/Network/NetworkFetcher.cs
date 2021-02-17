@@ -40,7 +40,7 @@ namespace LottieSharp.Network
         /// Returns null if the animation doesn't exist in the cache.
         /// </summary>
         /// <returns></returns>
-        private async Task<LottieComposition> FetchFromCacheAsync(CancellationToken cancellationToken = default(CancellationToken))
+        private Task<LottieComposition> FetchFromCacheAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             //var cacheResult = await _networkCache.FetchAsync(cancellationToken);
             //if (cacheResult == null)
@@ -65,7 +65,7 @@ namespace LottieSharp.Network
             //        return result.Value;
             //    }
             //}
-            return null;
+            return Task.FromResult<LottieComposition>(default);
         }
 
         private async Task<LottieResult<LottieComposition>> FetchFromNetworkAsync(RenderTarget renderTarget, CancellationToken cancellationToken = default(CancellationToken))

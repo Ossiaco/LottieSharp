@@ -108,8 +108,9 @@ namespace LottieSharp
             var duration = (CurrentUnixTime() - _startTimeNs[_traceDepth]) / 1000000f;
             BatchedDebugWriteLine($"End Section - {duration}ms");
             return duration;
-#endif
+#else
             return 0f;
+#endif
         }
 
         [Conditional("DEBUG")]
